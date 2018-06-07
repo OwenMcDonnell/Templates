@@ -25,7 +25,7 @@ build_script:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 - ps: choco install dotnetcore-sdk --no-progress --confirm --version 2.1.300
-- ps: & "build.ps1"
+- ps: & build.ps1
 
 test: off
 
