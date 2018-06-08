@@ -2,7 +2,8 @@
 
 version: '{build}'
 
-image: Visual Studio 2017
+image: Previous Visual Studio 2017
+#appveyor_build_worker_cloud: gce
 install:
 - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 
@@ -25,7 +26,7 @@ build_script:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 - ps: choco install dotnetcore-sdk --no-progress --confirm --version 2.1.300
-- pwsh: .\build.ps1
+- ps: .\build.ps1
 
 test: off
 
