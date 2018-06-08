@@ -3,7 +3,7 @@
 version: '{build}'
 
 image: Previous Visual Studio 2017
-appveyor_build_worker_cloud: gce
+
 install:
 - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 
@@ -12,6 +12,7 @@ pull_requests:
   do_not_increment_build_number: true
 
 environment:
+  appveyor_build_worker_cloud: gce
   # Set the DOTNET_SKIP_FIRST_TIME_EXPERIENCE environment variable to stop wasting time caching packages
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Disable sending usage data to Microsoft
