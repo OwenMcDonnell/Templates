@@ -3,7 +3,7 @@
 version: '{build}'
 
 image: Previous Visual Studio 2017
-#appveyor_build_worker_cloud: gce
+appveyor_build_worker_cloud: gce
 install:
 - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 
