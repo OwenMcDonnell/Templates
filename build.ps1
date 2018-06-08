@@ -5,14 +5,11 @@
 ##########################################################################
 
 <#
-
 .SYNOPSIS
 This is a Powershell script to bootstrap a Cake build.
-
 .DESCRIPTION
 This Powershell script will download NuGet if missing, restore NuGet tools (including Cake)
 and execute your Cake build script with the parameters you provide.
-
 .PARAMETER Script
 The build script to execute.
 .PARAMETER Target
@@ -32,10 +29,8 @@ Tells Cake to use the Mono scripting engine.
 Skips restoring of packages.
 .PARAMETER ScriptArgs
 Remaining arguments are added here.
-
 .LINK
 http://cakebuild.net
-
 #>
 
 [CmdletBinding()]
@@ -183,18 +178,7 @@ if (!(Test-Path $CAKE_EXE)) {
     Throw "Could not find Cake.exe at $CAKE_EXE"
 }
 
-# Build Cake arguments
-$cakeArguments = @("$Script");
-if ($Target) { $cakeArguments += "-target=$Target" }
-if ($Configuration) { $cakeArguments += "-configuration=$Configuration" }
-if ($Verbosity) { $cakeArguments += "-verbosity=$Verbosity" }
-if ($ShowDescription) { $cakeArguments += "-showdescription" }
-if ($DryRun) { $cakeArguments += "-dryrun" }
-if ($Experimental) { $cakeArguments += "-experimental" }
-if ($Mono) { $cakeArguments += "-mono" }
-$cakeArguments += $ScriptArgs
-
 # Start Cake
 Write-Host "Running build script..."
-&$CAKE_EXE $cakeArguments
+Invoke-Expression "& `"$CAKE_EXE`" `"$Script`" -target=`"$Target`" -configuration=`"$Configuration`" -verbosity=`"$Verbosity`" $UseMono $UseDryRun $UseExperimental $ScriptArgs"
 exit $LASTEXITCODE
