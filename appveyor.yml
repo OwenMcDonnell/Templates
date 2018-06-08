@@ -12,7 +12,7 @@ pull_requests:
   do_not_increment_build_number: true
 
 environment:
-  appveyor_build_worker_cloud: gce
+  #appveyor_build_worker_cloud: gce
   # Set the DOTNET_SKIP_FIRST_TIME_EXPERIENCE environment variable to stop wasting time caching packages
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Disable sending usage data to Microsoft
