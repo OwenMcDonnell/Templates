@@ -120,7 +120,7 @@ if (!(Test-Path $PACKAGES_CONFIG)) {
     Copy-Item -Path C:/Projects/Templates/packages.config -Destination C:/Projects/Templates/cake-tools/packages.config
     #try { (New-Object System.Net.WebClient).DownloadFile("http://cakebuild.net/download/bootstrapper/packages", $PACKAGES_CONFIG) } catch {
      #   Throw "Could not download packages.config."
-    }
+    #}
 }
 
 # Try find NuGet.exe in path if not exists
