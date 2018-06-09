@@ -85,7 +85,7 @@ $TOOLS_DIR = Join-Path $PSScriptRoot "cake-tools"
 $NUGET_EXE = Join-Path $TOOLS_DIR "nuget.exe"
 $CAKE_EXE = Join-Path $TOOLS_DIR "Cake/Cake.exe"
 $NUGET_URL = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-$PACKAGES_CONFIG = Join-Path $TOOLS_DIR "packages.config"
+$PACKAGES_CONFIG = "./packages.config"
 $PACKAGES_CONFIG_MD5 = Join-Path $TOOLS_DIR "packages.config.md5sum"
 
 # Should we use mono?
