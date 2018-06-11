@@ -60,12 +60,14 @@ Task("Test")
     {
         foreach(var project in GetFiles("./Tests/**/*.csproj"))
         {
-            XUnit2(project.ToString(),
-                new XUnit2Settings() {
+            XUnit2(
+                project.ToString(),
+                new XUnit2Settings() 
+                {
                     ToolPath = "C:\Tools\xUnit20",
                     MaxThreads = 1,
                     OutputDirectory = "./build"
-             });
+                });
         }
     });
 
