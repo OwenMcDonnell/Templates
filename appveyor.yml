@@ -1,7 +1,9 @@
 # AppVeyor documentation https://www.appveyor.com/docs
 
 version: '{build}'
-
+init:
+  - echo %xunit20%
+  - dir %xunit20%
 image: Visual Studio 2017
 install:
 - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
