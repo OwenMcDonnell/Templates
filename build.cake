@@ -60,17 +60,12 @@ Task("Test")
     {
         foreach(var project in GetFiles("./Tests/**/*.csproj"))
         {
-            DotNetCoreTest(
-                project.ToString(),
-                new DotNetCoreTestSettings()
-                {
-                    Configuration = configuration,
-                    Logger = $"trx;LogFileName={project.GetFilenameWithoutExtension()}.trx",
-                    NoBuild = true,
-                    NoRestore = true,
-                    ResultsDirectory = artifactsDirectory,
-                    ArgumentCustomization = args => args.Append($"-maxthreads 1")
-                });
+            XUnit2(project.ToString(),
+                new XUnit2Settings {
+                    ToolPath = "C:\Tools\xUnit20",
+                    MaxThreads = 1,
+                    OutputDirectory = "./build"
+             });
         }
     });
 
