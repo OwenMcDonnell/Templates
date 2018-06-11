@@ -68,7 +68,8 @@ Task("Test")
                     Logger = $"trx;LogFileName={project.GetFilenameWithoutExtension()}.trx",
                     NoBuild = true,
                     NoRestore = true,
-                    ResultsDirectory = artifactsDirectory
+                    ResultsDirectory = artifactsDirectory,
+                    ArgumentCustomization = args => args.Append($"-maxthreads 1")
                 });
         }
     });
