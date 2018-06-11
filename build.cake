@@ -24,7 +24,9 @@ var artifactsDirectory = Directory("./Artifacts");
 var nuspecFile = GetFiles("./**/*.nuspec").First().ToString();
 var nuspecContent = string.Empty;
 var versionSuffix = string.IsNullOrEmpty(preReleaseSuffix) ? null : $"-{preReleaseSuffix}-{buildNumber:D4}";
-
+Setup(context => {
+    context.Tools.RegisterFile("C:/Tools/xUnit20/xunit.console.exe");
+});
 Task("Clean")
     .Does(() =>
     {
@@ -64,8 +66,7 @@ Task("Test")
                 project.ToString(),
                 new XUnit2Settings() 
                 {
-                    WorkingDirectory = "C:/Tools/xUnit20/",
-                    ToolPath = "./xunit.console.exe",
+
                     MaxThreads = 1,
                     OutputDirectory = "./build"
                 });
