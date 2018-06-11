@@ -64,7 +64,7 @@ Task("Test")
                 project.ToString(),
                 new XUnit2Settings() 
                 {
-                    WorkingDirectory = "C:/Tools/xUnit20",
+                    WorkingDirectory = "C:/Tools/xUnit20/",
                     ToolPath = "./xunit.console.exe",
                     MaxThreads = 1,
                     OutputDirectory = "./build"
