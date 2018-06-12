@@ -16,11 +16,14 @@
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <TestAssemblies Include="./**/*.test.dll" />
+  </ItemGroup>
 
-
-    <Target Name="Test">
-      <xunit MaxParallelThreads="1" />
-    </Target>
+  <Target Name="Test">
+    <xunit Assemblies="@(TestAssemblies)" MaxParallelThreads="1" />
+  </Target>
 
   
   <ItemGroup>
