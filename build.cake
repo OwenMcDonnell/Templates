@@ -70,12 +70,7 @@ Task("Test")
                     NoRestore = true,
                     ResultsDirectory = artifactsDirectory
                 },
-                project.ToString(),
-                new XUnit2Settings() 
-                {
-                    ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
-                    MaxThreads = 1
-                });
+                project.ToString()
         }
     });
 
