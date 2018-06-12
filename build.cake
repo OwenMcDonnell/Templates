@@ -1,4 +1,3 @@
-#addin "nuget:?package=Cake.Incubator"
 using System.Xml.Linq;
 
 var target = Argument("Target", "Default");
@@ -66,6 +65,7 @@ Task("Test")
                 new DotNetCoreTestSettings()
                 {
                     Configuration = configuration,
+                    Logger = $"trx;LogFileName={project.GetFilenameWithoutExtension()}.trx",
                     NoBuild = true,
                     NoRestore = true,
                     ResultsDirectory = artifactsDirectory
