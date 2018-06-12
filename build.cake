@@ -61,14 +61,11 @@ Task("Test")
     {
         foreach(var project in GetFiles("./**/*.csproj"))
         {
-            XUnit2(
-                project.ToString(),
-                new XUnit2Settings() 
-                {
-                    ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
-                    MaxThreads = 1,
-                    OutputDirectory = "./build"
-                }); 
+            StartProcess(
+                "C:/Tools/xUnit20/xunit.console.exe",
+                $"{project.ToString()} -appveyor -maxthreads 1"
+                );
+                
             
                 
         }
