@@ -59,7 +59,7 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        foreach(var project in GetFiles("./**/*.csproj"))
+        foreach(var project in GetFiles("./**/*.test.dll"))
         {
             StartProcess(
                 "C:/Tools/xUnit20/xunit.console.exe",
