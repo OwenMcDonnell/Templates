@@ -1,4 +1,4 @@
-#tool "nuget:?package=xunit.runner.console"
+
 using System.Xml.Linq;
 
 var target = Argument("Target", "Default");
@@ -61,14 +61,7 @@ Task("Test")
     {
         foreach(var project in GetFiles("./Tests/**/*.csproj"))
         {
-            XUnit2(
-                project.ToString(),
-                new XUnit2Settings() 
-                {
-
-                    MaxThreads = 1,
-                    OutputDirectory = "./build"
-                });
+            DotNetCoreExecute("C:/Tools/xunit20/xunit.console.exe", "{project} -appveyor -maxthreads 1");
         }
     });
 
