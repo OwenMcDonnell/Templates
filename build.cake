@@ -62,7 +62,7 @@ Task("Test")
         foreach(var project in GetFiles("./Tests/**/*.csproj"))
         {
              DotNetCoreTest(
-                project.ToString(),
+                
                 new DotNetCoreTestSettings()
                 {
                     Configuration = configuration,
@@ -70,7 +70,8 @@ Task("Test")
                     NoRestore = true,
                     ResultsDirectory = artifactsDirectory
                 },
-                 new XUnit2Settings() 
+                project.ToString(),
+                new XUnit2Settings() 
                 {
                     ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
                     MaxThreads = 1
