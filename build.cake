@@ -68,13 +68,14 @@ Task("Test")
                     Configuration = configuration,
                     NoBuild = true,
                     NoRestore = true,
-                    ResultsDirectory = artifactsDirectory
+                    ResultsDirectory = artifactsDirectory,
+                    MaxParallelThreads = 1
                 },
                 project.ToString(),
                 new XUnit2Settings() 
                 {
                     ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
-                    MaxThreads = 1
+                    MaxParallelThreads = 1
                 });
         }
     });
