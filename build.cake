@@ -59,9 +59,16 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        foreach(var project in GetFiles("./Tests/**/*.csproj"))
+        foreach(var project in GetFiles("./Tests/**/*.dll"))
         {
-            DotNetCoreExecute("C:/Tools/xunit20/xunit.console.exe", "{project} -appveyor -maxthreads 1");
+            XUnit2(
+                project.ToString(),
+                new XUnit2Settings() 
+                {
+                    ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
+                    MaxThreads = 1,
+                    OutputDirectory = "./build"
+                });
         }
     });
 
