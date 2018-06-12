@@ -62,14 +62,14 @@ Task("Test")
         foreach(var project in GetFiles("./Tests/**/*.dll"))
         {
              DotNetCoreTest(
-+                project.ToString(),
-+                new DotNetCoreTestSettings()
-+                {
-+                    Configuration = configuration,
-+                    NoBuild = true,
-+                    NoRestore = true,
-+                    ResultsDirectory = artifactsDirectory
-+                },
+                project.ToString(),
+                new DotNetCoreTestSettings()
+                {
+                    Configuration = configuration,
+                    NoBuild = true,
+                    NoRestore = true,
+                    ResultsDirectory = artifactsDirectory
+                },
                  new XUnit2Settings() 
                 {
                     ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
