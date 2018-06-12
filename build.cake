@@ -66,7 +66,7 @@ Task("Test")
                 {
                     Configuration = configuration,
                     Logger = $"trx;LogFileName={project.GetFilenameWithoutExtension()}.trx",
-                    NoBuild = true,
+                    //NoBuild = true,
                     NoRestore = true,
                     ResultsDirectory = artifactsDirectory
                 });
