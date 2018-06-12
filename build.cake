@@ -1,4 +1,4 @@
-#tool "xunit.runner.console"
+#tool "nuget:?package=xunit.runner.console"
 using System.Xml.Linq;
 
 var target = Argument("Target", "Default");
