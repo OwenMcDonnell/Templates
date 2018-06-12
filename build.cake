@@ -1,3 +1,4 @@
+#tool "xunit.runner.console"
 using System.Xml.Linq;
 
 var target = Argument("Target", "Default");
@@ -24,9 +25,7 @@ var artifactsDirectory = Directory("./Artifacts");
 var nuspecFile = GetFiles("./**/*.nuspec").First().ToString();
 var nuspecContent = string.Empty;
 var versionSuffix = string.IsNullOrEmpty(preReleaseSuffix) ? null : $"-{preReleaseSuffix}-{buildNumber:D4}";
-Setup(context => {
-    context.Tools.RegisterFile("C:/Tools/xUnit20/xunit.console.exe");
-});
+
 Task("Clean")
     .Does(() =>
     {
