@@ -1,3 +1,4 @@
+#tool "nuget:?package=xunit.runner.console"
 using System.Xml.Linq;
 
 var target = Argument("Target", "Default");
@@ -64,7 +65,7 @@ Task("Test")
                 project.ToString(),
                 new XUnit2Settings() 
                 {
-                    ToolPath = "C:/Tools/xUnit20",
+                    ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
                     MaxThreads = 1,
                     OutputDirectory = "./build"
                 }); 
