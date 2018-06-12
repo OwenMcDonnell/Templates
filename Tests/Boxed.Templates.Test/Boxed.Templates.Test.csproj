@@ -16,14 +16,7 @@
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.console" Version="2.3.1" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <TestAssemblies Include="./**/Boxed.Templates.Test.test.dll" />
-  </ItemGroup>
 
-  <Target Name="Test">
-    <xunit Assemblies="@(TestAssemblies)" MaxParallelThreads="1" />
-  </Target>
 
   
   <ItemGroup>
