@@ -74,7 +74,7 @@ Task("Test")
                 new XUnit2Settings() 
                 {
                     ToolPath = "C:/Tools/xUnit20/xunit.console.exe",
-                    MaxParallelThreads = 1
+                    MaxThreads = 1
                 });
         }
     });
