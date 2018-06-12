@@ -62,15 +62,15 @@ Task("Test")
         foreach(var project in GetFiles("./Tests/**/*.csproj"))
         {
              DotNetCoreTest(
-                
+                project.ToString(),
                 new DotNetCoreTestSettings()
                 {
                     Configuration = configuration,
                     NoBuild = true,
                     NoRestore = true,
                     ResultsDirectory = artifactsDirectory
-                },
-                project.ToString()
+                });
+                
         }
     });
 
