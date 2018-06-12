@@ -1,4 +1,4 @@
-
+#addin "nuget:?package=Cake.Incubator"
 using System.Xml.Linq;
 
 var target = Argument("Target", "Default");
