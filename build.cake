@@ -58,7 +58,7 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        foreach(var project in GetFiles("./**/*test.dll"))
+        foreach(var project in GetFiles("./**/*.csproj"))
         {
              DotNetCoreTest(
                 project.ToString(),
