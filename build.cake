@@ -68,8 +68,7 @@ Task("Test")
                     Configuration = configuration,
                     NoBuild = true,
                     NoRestore = true,
-                    ResultsDirectory = artifactsDirectory,
-                    MaxParallelThreads = 1
+                    ResultsDirectory = artifactsDirectory
                 },
                 project.ToString(),
                 new XUnit2Settings() 
