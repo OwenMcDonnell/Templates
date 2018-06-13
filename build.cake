@@ -61,13 +61,16 @@ Task("Test")
     {
         foreach(var project in GetFiles("./**/*.test.dll"))
         {
-            StartProcess(
-                "C:/Tools/xUnit20/xunit.console.exe",
-                $"{project.ToString()} -appveyor -maxthreads 1"
-                );
-                
-            
-                
+            DotNetCoreTest(
+                project.ToString(),
+                new DotNetCoreTestSettings()
+                {
+                    Configuration = configuration,
+                    Logger = $"trx;LogFileName={project.GetFilenameWithoutExtension()}.trx",
+                    NoBuild = true,
+                    NoRestore = true,
+                    ResultsDirectory = artifactsDirectory
+                });                 
         }
     });
 
