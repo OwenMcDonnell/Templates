@@ -1,4 +1,4 @@
-#tool "nuget:?package=xunit.runner.console"
+
 using System.Xml.Linq;
 
 var target = Argument("Target", "Default");
@@ -59,7 +59,7 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        foreach(var project in GetFiles("./**/*.test.dll"))
+        foreach(var project in GetFiles("./**/*.csproj"))
         {
             DotNetCoreTest(
                 project.ToString(),
