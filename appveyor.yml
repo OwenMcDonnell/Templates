@@ -1,9 +1,9 @@
 # AppVeyor documentation https://www.appveyor.com/docs
 
 version: '{build}'
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-  - dir %xunit20%
+#init:
+ # - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- dir %xunit20%
 image: Visual Studio 2017
 install:
 - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
